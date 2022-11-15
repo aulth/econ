@@ -4,7 +4,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Oleo+Script+Swash+Caps&display=swap");
 body {
   /* background: #232323; */
- 
 }
 @font-face {
   font-family: "unisans";
@@ -26,8 +25,6 @@ body {
   font-family: "cascadia";
   src: url("/fonts/cascadia.ttf");
 }
-//xyzanomation
-
 
 //scrollbar
 /* Firefox */
@@ -49,4 +46,13 @@ body {
   background-color: transparent;
   border-radius: 0px;
   border: 1px solid #26dafd;
+}
+
+.main-window{
+height:calc(100vh - 177px);
+}
+@media screen and (min-width:758px){
+ .main-window{
+    height:calc(100vh - 120px);
+  }
 }

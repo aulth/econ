@@ -13,7 +13,7 @@ const About = () => {
         <meta name="description" content="ECON - Email Concealer. ECON provides the best solution to protect your.." />
        </Head>
         <div className='text-[#A1ECFB]'>
-            <div className="scify-bg bg-[url('/images/space.gif')] bg-no-repeat bg-cover bg-center blur-sm w-full h-screen -z-10 fixed top-0 right-0"></div>
+            <div className="scify-bg bg-[url('/images/space.gif')] bg-no-repeat bg-cover bg-center   w-full h-screen -z-10 fixed top-0 right-0"></div>
 
             <div className="border-b-4 border-[rgb(2,157,187)] font-[titlium]">
                 <Navbar />
