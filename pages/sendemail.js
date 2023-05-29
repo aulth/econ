@@ -3,9 +3,15 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { BiBomb } from 'react-icons/bi'
 import CornerBorder from '../components/CornerBorder';
+import 'react-quill/dist/quill.snow.css'
+import dynamic from 'next/dynamic'
 import '@animxyz/core'
 import { useRouter } from 'next/router';
 import Head from 'next/head';
+const QuillNoSSRWrapper = dynamic(import('react-quill'), {	
+    ssr: false,
+    loading: () => <p>Loading ...</p>,
+    })
 const Sendemail = () => {
     const [data, setData] = useState({ from: 'econ@gmail.com', title: 'anonymous', to: '', subject: '', body: '', count: '1' });
     const [mailNumber, setMailNumber] = useState(0);
@@ -17,6 +23,9 @@ const Sendemail = () => {
         console.log(e.target.name)
         setData({ ...data, [e.target.name]: e.target.value });
         console.log(data);
+    }
+    const setBody = e =>{
+        setData({...data, body:e});
     }
     const handleOnSubmit = async (e) => {
         e.preventDefault();
@@ -60,6 +69,7 @@ const Sendemail = () => {
     const clearData = ()=>{
         setData({ from: 'econ@gmail.com', title: 'anonymous', to: '', subject: '', body: '', count: '1' })
     }
+    
     return (
         <>
             <Head>
@@ -101,7 +111,8 @@ const Sendemail = () => {
                         </div>
                         <div className=" container m-auto mt-3 px-2 border-[#26DAFD] font-[titlium] flex-col justify-between items-center xyz-in" xyz="fade up flip-down stagger ease-out-back   ">
                             <p className='text-[#26DAFD] xyz-nested'>Compose box:</p>
-                            <textarea type="text" name='body' value={data.body} onChange={handleOnChange} className='w-full h-28 ml-2 mt-1 bg-transparent border-b border-[#26DAFD] focus:outline-none  font-[cascadia] text-[#349FE8] xyz-nested' />
+                            {/* <textarea type="text" name='body' value={data.body} onChange={handleOnChange} className='w-full h-28 ml-2 mt-1 bg-transparent border-b border-[#26DAFD] focus:outline-none  font-[cascadia] text-[#349FE8] xyz-nested' /> */}
+                        <QuillNoSSRWrapper  onChange={setBody} theme="snow" />
                         </div>
                         <div className=" container m-auto mt-3 px-2 border-[#26DAFD] font-[titlium] flex justify-between items-center xyz-in" xyz="fade up flip-down stagger ease-out-back   ">
                             <div className='flex xyz-nested' xyz="fade up flip-down stagger ease-out-back">
