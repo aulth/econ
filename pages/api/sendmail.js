@@ -23,7 +23,7 @@ const sendMail = async (req, res) => {
         from: `${title} <${from}>`,
         to: to,
         subject: subject,
-        text: body,
+        html: body,
     };
     transporter.sendMail(mailOption, (err, info) => {
         if (err) console.log(err)
